@@ -41,6 +41,16 @@ public class MyLinkedList {
             }
         }
     }
+    
+     public void printAll(Node head){
+        if(head != null){
+            Node currentNode = head;
+            while (currentNode!=null){
+                System.out.println(currentNode.data);
+                currentNode = currentNode.next;
+            }
+        }
+    }
 
     public void remove (int data){
 
@@ -104,6 +114,22 @@ public class MyLinkedList {
             }
             temp.next = head;
         }
+    }
+    
+    public void reverseLinkedList(){
+       Node current = head;
+       Node previous = null;
+       Node next = null;
+
+       while(current!=null){
+           next = current.next;
+           current.next = previous;
+           previous = current;
+           current = next;
+       }
+       if(previous!=null){
+           printAll(previous);
+       }
     }
 
 }
